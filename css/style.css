@@ -71,9 +71,14 @@ footer a:visited{
 /*****  End Starter Code ****/
 
 /* Requirement 1 code here*/
+nav a{
+  text-decoration: none;
+}
 
 /* Requirement 2 code here*/
-
+nav a:hover{
+  text-decoration: underline wavy;
+}
 
 
 a.skip{
@@ -83,27 +88,83 @@ a.skip{
   transition: left 1s ease-out;
   z-index: 1;
   /* Requirement 3 code here*/
-  
+  position: absolute;
+  left: -500px;
+  overflow: hidden;
 }
 
 
 /* Requirement 4 code here*/
+*:focus{
+  border-style: solid;
+  border-top-width: 2px;
+  border-color: yellow;
+}
 
 
 .container{
   /* Requirement 5 code here*/
-
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  row-gap: 30px;
 }
 
 /* Requirements 6-10 here: */
+.intro{
+  background: url("../images/header.jpg") #dddddd ;
 
 
+  /* Set a specific height */
+  min-height: 400px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about, .method, .clients, .contact{
+  grid-column: 2 / span 1;
+}
+
+img{
+  width: 100%;
+}
+
+.about-image, .method-image, .clients-image, .contact-image{
+  grid-column: 1 / -1;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.about, .about-image{
+  grid-row: 1 / span 1;
+}
+
+.method, .method-image{
+  grid-row: 3 / span 1;
+}
+
+.clients, .clients-image{
+  grid-row: 2 / span 1;
+}
+
+.contact, .contact-image{
+  grid-row: 4 / span 1;
+}
+
+.text{
+  align-self: center;
+  max-height: 25vh;
+  overflow: scroll;
+}
 
 @media screen and (min-width: 700px){
   nav{
     padding-top: 35px;
     /*Requirement 11*/
-
+    text-align: right;
   }
 
   nav li{
@@ -113,9 +174,30 @@ a.skip{
 
   
   /* Requirements 12-15 here: */
+  a.skip:focus{
+    left: 0px;
+    top: 20px;
+    position: absolute;
+  }
 
+  .container{
+    display: grid;
+    grid-template-columns: 50px auto 500px auto 50px;
+    grid-template-rows: 300px 300px 300px 300px;
+  }
+
+  .about, .method, .clients-image, .contact-image{
+    grid-column: 3 / span 2;
+  }
+
+  .about-image, .method-image, .clients, .contact {
+    grid-column: 2 / span 2;
+  }
+
+  text{
+    align-self: center;
+  }
 }
-
 
 
 
